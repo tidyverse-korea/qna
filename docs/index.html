@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>R / Tidyverse 질의응답</title>
+  <meta name="description" content="R / Tidyverse 질의 응답을 모아 공유하는 웹사이트입니다." />
+  <meta name="generator" content="bookdown 0.23.1 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="R / Tidyverse 질의응답" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="R / Tidyverse 질의 응답을 모아 공유하는 웹사이트입니다." />
+  <meta name="github-repo" content="tidyverse-korea/qna" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R / Tidyverse 질의응답" />
+  
+  <meta name="twitter:description" content="R / Tidyverse 질의 응답을 모아 공유하는 웹사이트입니다." />
+  
+
+<meta name="author" content="한국 R 사용자회" />
+
+
+<meta name="date" content="2021-12-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="참고문헌.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R/Tidyverse Q&A 책</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>들어가며</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#qna"><i class="fa fa-check"></i>질문 방법</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="참고문헌.html"><a href="참고문헌.html"><i class="fa fa-check"></i>참고문헌</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R / Tidyverse 질의응답</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">R / Tidyverse 질의응답</h1>
+<p class="author"><em>한국 R 사용자회</em></p>
+<p class="date"><em>2021-12-08</em></p>
+</div>
+<div id="intro" class="section level1 unnumbered">
+<h1>들어가며</h1>
+<p>SAS/SPSS/미니탭/STATA/가우스 등 통계 패키지를 벗어나 데이터 과학으로 R을 사용하게 되면
+<a href="https://stackoverflow.com/">stack<strong>overflow</strong></a>, 구글, 네이버 지식인 등 구글링을 통해 문제를 해결하게 되는 경우가 많습니다. R/Tidyverse 관련 질의응답을 책으로 만들어 많이 물어보는 사례를 책으로 묶어 R 사용자들이 코딩으로 인한 고통보다 즐거운 데이터 분석 시간을 많이 갖도록 하는 취지로 시작하게 되었습니다.</p>
+<ul>
+<li>한국 R 컨퍼런스: <a href="https://use-r.kr/">link</a></li>
+<li>Seoul R Meetup 웹사이트: <a href="https://tidyverse-korea.github.io/seoul-R/">link</a>
+<ul>
+<li><strong>Seoul R Meetup</strong>: <a href="https://www.meetup.com/seoul-r-meetup">link</a></li>
+</ul></li>
+<li>Youtube Channel: <a href="https://www.youtube.com/channel/UCW-epmIvjBEhhVXw_F0Nqbw">link</a></li>
+<li>Facebook Group: <a href="https://www.facebook.com/groups/tidyverse">link</a></li>
+<li>Global R Meetup: <a href="https://benubah.github.io/r-community-explorer/rugs.html">link</a></li>
+<li>A list of R conferences and meetings: <a href="https://jumpingrivers.github.io/meetingsR/">link</a></li>
+</ul>
+<p><img src="fig/helpmehelpyou.gif" /></p>
+
+<div id="qna" class="section level2 unnumbered">
+<h2>질문 방법</h2>
+<p>Github <a href="https://github.com/tidyverse-korea/qna/issues/"><code>qna</code></a> 저장소 이슈(Issues)에 질문을 남겨주세요.</p>
+<p><img src="fig/github_issue.png" width="656" /></p>
+<p>특히 <a href="https://reprex.tidyverse.org/"><code>reprex</code></a> 패키지 사용해서 관련 내용도 재현가능하게 만들어서 공유해 주시면 큰 도움이 되겠습니다.</p>
+<ul>
+<li><a href="https://aispiration.com/data-science/ds-r-reprex.html">도와줘요 - <code>reprex</code></a></li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="참고문헌.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "lunr",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
