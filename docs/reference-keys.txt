@@ -3,3 +3,5 @@ distill
 distill-setting
 distill-strategy
 distill-strategy-solution
+github
+github-private

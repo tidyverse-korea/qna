@@ -1,0 +1,82 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# Git, Github {#github}
+
+## 사설 저장소(Private) 패키지 설치 {#github-private}
+
+Github 저장소에 공개(Public) 패키지와 사설(Private) 패키지가 존재하는데 사설 패키지를 설치하고자 할 경우 공개 패키지 설치하는 동일한 방식으로 접근할 경우 오류가 생겨 이를 피해 설치하는 방법을 알아보자. 다음 사례는 `krvotes` 패키지를 설치할 경우 사설 저장소라 바로 설치가 되지 않는 오류가 발생했다.
+
+```{r github-private, eval = FALSE}
+> remotes::install_github("statkclee/krvotes")
+Error: Failed to install 'unknown package' from GitHub:
+  HTTP error 404.
+  Not Found
+
+  Did you spell the repo owner (`statkclee`) and repo name (`krvotes`) correctly?
+  - If spelling is correct, check that you have the required permissions to access the repo.
+Backtrace:
+ 1. remotes::install_github("statkclee/krvotes")
+ 2. remotes:::install_remotes(...)
+ 3. base::tryCatch(...)
+ 4. base:::tryCatchList(expr, classes, parentenv, handlers)
+ 5. base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+ 6. value[[3L]](cond)
+```
+
+PAT(Personal Access Token) 생성하는 방법은 다음 GitHub Docs를 참고한다.
+
+- [Creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+
+생성한 PAT 토큰을 `devtools::install_github()` 함수를 사용해서 실행시키게 되면 원하는 Private 저장소에 저장된 사설 패키지를 설치할 수 있다.
+
+```{r install-krvotes, eval = FALSE}
+devtools::install_github("statkclee/krvotes",
+                         ref="master",
+                         auth_token = "ghp_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+
+Downloading GitHub repo statkclee/krvotes@master
+√  checking for file 'C:\Users\statkclee\AppData\Local\Temp\RtmpKAmTqa\remotes56f8207c17b1\statkclee-krvotes-f94f608dbd0cceb7defc8a4978a7f89cffcb0ee4/DESCRIPTION' ... 
+-  preparing 'krvotes': (468ms)
+√  checking DESCRIPTION meta-information ... 
+-  checking for LF line-endings in source and make files and shell scripts
+-  checking for empty or unneeded directories
+-  building 'krvotes_0.3.7.tar.gz'
+   
+Installing package into ‘C:/Users/statkclee/Documents/R/win-library/4.1’
+(as ‘lib’ is unspecified)
+* installing *source* package 'krvotes' ...
+** using staged installation
+** R
+** data
+*** moving datasets to lazyload DB
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+  converting help for package 'krvotes'
+    finding HTML links ... done
+    congress_2016                           html  
+    congress_2020                           html  
+    demographics_2020                       html  
+    local_2014                              html  
+    local_2014_sigungu                      html  
+    local_2018                              html  
+    local_2018_sigungu                      html  
+    precinct_2016                           html  
+    president_2012                          html  
+    president_2017                          html  
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+*** arch - i386
+*** arch - x64
+** testing if installed package can be loaded from final location
+*** arch - i386
+*** arch - x64
+** testing if installed package keeps a record of temporary installation path
+* DONE (krvotes)
+```
+
