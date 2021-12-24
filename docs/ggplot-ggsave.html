@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>R / Tidyverse 질의응답</title>
+  <title>4 ggplot 그래프 내보내기 | R / Tidyverse 질의응답</title>
   <meta name="description" content="R / Tidyverse 질의 응답을 모아 공유하는 웹사이트입니다." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="R / Tidyverse 질의응답" />
+  <meta property="og:title" content="4 ggplot 그래프 내보내기 | R / Tidyverse 질의응답" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="tidyverse-korea/qna" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R / Tidyverse 질의응답" />
+  <meta name="twitter:title" content="4 ggplot 그래프 내보내기 | R / Tidyverse 질의응답" />
   
   <meta name="twitter:description" content="R / Tidyverse 질의 응답을 모아 공유하는 웹사이트입니다." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="encoding.html"/>
+<link rel="prev" href="shapefile-leaflet.html"/>
+<link rel="next" href="참고문헌.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -180,46 +180,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">R / Tidyverse 질의응답</h1>
-<p class="author"><em>한국 R 사용자회</em></p>
-<p class="date"><em>2021-12-24</em></p>
-</div>
-<div id="intro" class="section level1 unnumbered">
-<h1>들어가며</h1>
-<p>SAS/SPSS/미니탭/STATA/가우스 등 통계 패키지를 벗어나 데이터 과학으로 R을 사용하게 되면
-<a href="https://stackoverflow.com/">stack<strong>overflow</strong></a>, 구글, 네이버 지식인 등 구글링을 통해 문제를 해결하게 되는 경우가 많습니다. R/Tidyverse 관련 질의응답을 책으로 만들어 많이 물어보는 사례를 책으로 묶어 R 사용자들이 코딩으로 인한 고통보다 즐거운 데이터 분석 시간을 많이 갖도록 하는 취지로 시작하게 되었습니다.</p>
+<div id="ggplot-ggsave" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> <code>ggplot</code> 그래프 내보내기</h1>
+<p><img src="fig/ggsave-error.jpg" /></p>
+<p>화면에는 제대로 나타나지만 이를 <code>PNG</code>, <code>JPG</code> 파일로 내보내서 저장시킬 경우 다양한 이유로 인해서 원하는 그래프 결과물을 얻을 수 없다. 즉 <code>ggplot()</code>으로 그래프 결과물을 제작한 후에 <code>ggsave()</code> 함수로 그래프를 <code>PNG</code>, <code>JPG</code> 파일로 내보낼 경우 글꼴, 종횡비 등 다양한 원인으로 위와 같은 원치않는 결과를 얻게 된다.</p>
 <ul>
-<li>한국 R 컨퍼런스: <a href="https://use-r.kr/">link</a></li>
-<li>Seoul R Meetup 웹사이트: <a href="https://tidyverse-korea.github.io/seoul-R/">link</a>
-<ul>
-<li><strong>Seoul R Meetup</strong>: <a href="https://www.meetup.com/seoul-r-meetup">link</a></li>
-</ul></li>
-<li>Youtube Channel: <a href="https://www.youtube.com/channel/UCW-epmIvjBEhhVXw_F0Nqbw">link</a></li>
-<li>Facebook Group: <a href="https://www.facebook.com/groups/tidyverse">link</a></li>
-<li>Global R Meetup: <a href="https://benubah.github.io/r-community-explorer/rugs.html">link</a></li>
-<li>A list of R conferences and meetings: <a href="https://jumpingrivers.github.io/meetingsR/">link</a></li>
+<li>글꼴, 글꼴 크기</li>
+<li>종횡비</li>
+<li>…</li>
 </ul>
-<p><img src="fig/helpmehelpyou.gif" /></p>
+<p>이런 문제를 해결하기 위해서 <code>ragg</code> 팩키지 <code>agg_png()</code> 함수를 사용해서 이런 문제를 극복해낸다.
+<code>mm</code> 단위로 <code>297 X 210</code>은 가장 많이 사용되는 A4용지가 된다. 즉, <code>ggplot</code> 그래프를 A4 용지에 뽑아낼 경우를 상정하고 <code>png</code> 파일로 저장시킨다.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="ggplot-ggsave.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb9-2"><a href="ggplot-ggsave.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb9-3"><a href="ggplot-ggsave.html#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="ggplot-ggsave.html#cb9-4" aria-hidden="true" tabindex="-1"></a>plt <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
+<span id="cb9-5"><a href="ggplot-ggsave.html#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(bill_length_mm, bill_depth_mm, <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb9-6"><a href="ggplot-ggsave.html#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb9-7"><a href="ggplot-ggsave.html#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">x =</span> <span class="dv">45</span>, <span class="at">y =</span> <span class="dv">20</span>, <span class="at">label =</span> <span class="st">&quot;Example of font problem&quot;</span>, <span class="at">size =</span> <span class="dv">15</span><span class="sc">/</span>.pt, <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb9-8"><a href="ggplot-ggsave.html#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Bill length and depth relation by species&quot;</span>) <span class="sc">+</span></span>
+<span id="cb9-9"><a href="ggplot-ggsave.html#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>))</span>
+<span id="cb9-10"><a href="ggplot-ggsave.html#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="ggplot-ggsave.html#cb9-11" aria-hidden="true" tabindex="-1"></a>ragg<span class="sc">::</span><span class="fu">agg_png</span>(<span class="st">&quot;fig/ragg_penguins_a4.png&quot;</span>, <span class="at">width =</span> <span class="dv">297</span>, <span class="at">height =</span> <span class="dv">210</span>, <span class="at">units =</span> <span class="st">&quot;mm&quot;</span>, <span class="at">res =</span> <span class="dv">600</span>)</span>
+<span id="cb9-12"><a href="ggplot-ggsave.html#cb9-12" aria-hidden="true" tabindex="-1"></a>plt</span>
+<span id="cb9-13"><a href="ggplot-ggsave.html#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+<pre><code>png 
+  2 </code></pre>
+<p>로컬파일에 저장시킨 그래프 이미지 파일을 살펴보자.</p>
+<p><img src="fig/ragg_penguins_a4.png" /></p>
 
-<div id="qna" class="section level2 unnumbered">
-<h2>질문 방법</h2>
-<p>Github <a href="https://github.com/tidyverse-korea/qna/issues/"><code>qna</code></a> 저장소 이슈(Issues)에 질문을 남겨주세요.</p>
-<p><img src="fig/github_issue.png" width="656" /></p>
-<p>특히 <a href="https://reprex.tidyverse.org/"><code>reprex</code></a> 패키지 사용해서 관련 내용도 재현가능하게 만들어서 공유해 주시면 큰 도움이 되겠습니다.</p>
-<ul>
-<li><a href="https://aispiration.com/data-science/ds-r-reprex.html">도와줘요 - <code>reprex</code></a></li>
-</ul>
-
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="encoding.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="shapefile-leaflet.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="참고문헌.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -250,7 +247,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-ggplot.Rmd",
 "text": "Edit"
 },
 "history": {

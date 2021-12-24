@@ -7,3 +7,4 @@ github
 github-private
 shapefile-leaflet
 shapefile-leaflet-error
+ggplot-ggsave

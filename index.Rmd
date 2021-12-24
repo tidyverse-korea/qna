@@ -29,9 +29,12 @@ SAS/SPSS/미니탭/STATA/가우스 등 통계 패키지를 벗어나 데이터 �
 
 ![](fig/helpmehelpyou.gif)
 
-```{r include=FALSE}
+```{r setup, include=FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE,
+                      comment="", digits = 3, tidy = FALSE, prompt = FALSE, fig.align = 'center')
+
 ```
