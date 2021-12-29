@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | R / Tidyverse 질의응답</title>
+  <title>5 github 저장소 연결 | R / Tidyverse 질의응답</title>
   <meta name="description" content="R / Tidyverse 질의 응답을 모아 공유하는 웹사이트입니다." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | R / Tidyverse 질의응답" />
+  <meta property="og:title" content="5 github 저장소 연결 | R / Tidyverse 질의응답" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="tidyverse-korea/qna" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | R / Tidyverse 질의응답" />
+  <meta name="twitter:title" content="5 github 저장소 연결 | R / Tidyverse 질의응답" />
   
   <meta name="twitter:description" content="R / Tidyverse 질의 응답을 모아 공유하는 웹사이트입니다." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-
+<link rel="prev" href="ggplot-ggsave.html"/>
+<link rel="next" href="참고문헌.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -187,19 +187,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="github-link" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> <code>github</code> 저장소 연결</h1>
+<p><img src="fig/github-remote.jpg" /></p>
+<p>R 팩키지, <code>distill</code>, <code>blogdown</code>, <code>bookdown</code>, <code>shiny</code>, <code>flexdashboard</code> 등 다양한 프로젝트로 로컬 컴퓨터에 데이터 과학 제품 개발 작업을 수행한다. 이런 경우 다양한 데이터 과학 프로젝트를 공유와 협업 혹은 백업 목적으로 <a href="https://github.com/">github 웹사이트</a>에 저장소를 만드는 경우가 매우 많다. 이런 경우 <strong>로컬 git 저장소</strong>와 <strong>원격 <code>github</code> 저장소</strong>를 연결할 경우 다음 과정을 통해 동기화 시킨다.</p>
+<div id="r-project" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> R 프로젝트</h2>
+<p>R 팩키지, <code>distill</code>, <code>blogdown</code>, <code>bookdown</code>, <code>shiny</code>, <code>flexdashboard</code> 등 다양한 데이터 과학 과제를 R 프로젝트로 생성한다.</p>
+<p><img src="fig/github-r-project.jpg" /></p>
+</div>
+<div id="git-repo" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> 로컬 <code>git</code> 저장소</h2>
+<p>준비한 R 프로젝트를 <code>git init</code> 명령어로 로컬 git 저장소를 생성하고 git 작업흐름에 맞춰 작업한다.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="github-link.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git init</span>
+<span id="cb11-2"><a href="github-link.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git add .</span>
+<span id="cb11-3"><a href="github-link.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git commit <span class="sc">-</span>m ‘initial commit’</span></code></pre></div>
+</div>
+<div id="github-repo" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> 원격 <code>github</code> 저장소</h2>
+<p><a href="https://github.com/">github 웹사이트</a>에서 원격 저장소를 절차를 거쳐 생성한다.</p>
+<p><img src="fig/github-repo.jpg" /></p>
+</div>
+<div id="github-repo-link" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> 로컬과 원격 저장소 연결</h2>
+<p>마지막으로, 원격 저장소를 로컬 저장소와 다음 명령어로 연결시키고 연결된 네트워크 정보를 바탕으로 로컬 저장소에서 작업한 사항을 원격 저장소로 보낸다.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="github-link.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git remote add origin git<span class="sc">@</span>github.com<span class="sc">:</span>XXXXXcarpentry<span class="sc">/</span>demographics.git <span class="co"># 로컬 저장소를 원격저장소와 연결</span></span>
+<span id="cb12-2"><a href="github-link.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git remote <span class="sc">-</span>v    <span class="co"># 연결된 사항 확인</span></span>
+<span id="cb12-3"><a href="github-link.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git push <span class="sc">--</span>set<span class="sc">-</span>upstream origin master  <span class="co"># 로컬 개발 사항 원격 저장소에 푸쉬(공유)</span></span></code></pre></div>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-
+<a href="ggplot-ggsave.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="참고문헌.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -230,7 +254,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/%s",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-github-repo.Rmd",
 "text": "Edit"
 },
 "history": {

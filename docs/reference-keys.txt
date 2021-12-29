@@ -8,3 +8,8 @@ github-private
 shapefile-leaflet
 shapefile-leaflet-error
 ggplot-ggsave
+github-link
+r-project
+git-repo
+github-repo
+github-repo-link
