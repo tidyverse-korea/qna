@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 github 저장소 연결 | R / Tidyverse 질의응답</title>
+  <title>6 R 버전 바꾸기(R 4.2.0 → R 4.1.3) | R / Tidyverse 질의응답</title>
   <meta name="description" content="R / Tidyverse 질의 응답을 모아 공유하는 웹사이트입니다." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 github 저장소 연결 | R / Tidyverse 질의응답" />
+  <meta property="og:title" content="6 R 버전 바꾸기(R 4.2.0 → R 4.1.3) | R / Tidyverse 질의응답" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="tidyverse-korea/qna" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 github 저장소 연결 | R / Tidyverse 질의응답" />
+  <meta name="twitter:title" content="6 R 버전 바꾸기(R 4.2.0 → R 4.1.3) | R / Tidyverse 질의응답" />
   
   <meta name="twitter:description" content="R / Tidyverse 질의 응답을 모아 공유하는 웹사이트입니다." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="ggplot-ggsave.html"/>
-<link rel="next" href="r-upgrade.html"/>
+<link rel="prev" href="github-link.html"/>
+<link rel="next" href="참고문헌.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -188,43 +188,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="github-link" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> <code>github</code> 저장소 연결</h1>
-<p><img src="fig/github-remote.jpg" /></p>
-<p>R 팩키지, <code>distill</code>, <code>blogdown</code>, <code>bookdown</code>, <code>shiny</code>, <code>flexdashboard</code> 등 다양한 프로젝트로 로컬 컴퓨터에 데이터 과학 제품 개발 작업을 수행한다. 이런 경우 다양한 데이터 과학 프로젝트를 공유와 협업 혹은 백업 목적으로 <a href="https://github.com/">github 웹사이트</a>에 저장소를 만드는 경우가 매우 많다. 이런 경우 <strong>로컬 git 저장소</strong>와 <strong>원격 <code>github</code> 저장소</strong>를 연결할 경우 다음 과정을 통해 동기화 시킨다.</p>
-<div id="r-project" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> R 프로젝트</h2>
-<p>R 팩키지, <code>distill</code>, <code>blogdown</code>, <code>bookdown</code>, <code>shiny</code>, <code>flexdashboard</code> 등 다양한 데이터 과학 과제를 R 프로젝트로 생성한다.</p>
-<p><img src="fig/github-r-project.jpg" /></p>
-</div>
-<div id="git-repo" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> 로컬 <code>git</code> 저장소</h2>
-<p>준비한 R 프로젝트를 <code>git init</code> 명령어로 로컬 git 저장소를 생성하고 git 작업흐름에 맞춰 작업한다.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="github-link.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git init</span>
-<span id="cb11-2"><a href="github-link.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git add .</span>
-<span id="cb11-3"><a href="github-link.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git commit <span class="sc">-</span>m ‘initial commit’</span></code></pre></div>
-</div>
-<div id="github-repo" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> 원격 <code>github</code> 저장소</h2>
-<p><a href="https://github.com/">github 웹사이트</a>에서 원격 저장소를 절차를 거쳐 생성한다.</p>
-<p><img src="fig/github-repo.jpg" /></p>
-</div>
-<div id="github-repo-link" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> 로컬과 원격 저장소 연결</h2>
-<p>마지막으로, 원격 저장소를 로컬 저장소와 다음 명령어로 연결시키고 연결된 네트워크 정보를 바탕으로 로컬 저장소에서 작업한 사항을 원격 저장소로 보낸다.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="github-link.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git remote add origin git<span class="sc">@</span>github.com<span class="sc">:</span>XXXXXcarpentry<span class="sc">/</span>demographics.git <span class="co"># 로컬 저장소를 원격저장소와 연결</span></span>
-<span id="cb12-2"><a href="github-link.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git remote <span class="sc">-</span>v    <span class="co"># 연결된 사항 확인</span></span>
-<span id="cb12-3"><a href="github-link.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git push <span class="sc">--</span>set<span class="sc">-</span>upstream origin master  <span class="co"># 로컬 개발 사항 원격 저장소에 푸쉬(공유)</span></span></code></pre></div>
+<div id="r-upgrade" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> R 버전 바꾸기(R 4.2.0 → R 4.1.3)</h1>
+<p>공식적으로 R 4.2 버젼이 공개되었습니다. 그동안 UTF-8 로케일로 인해 그동안 고통받았던
+인코딩으로부터 진정한 자유를 누릴 수 있을 듯 싶습니다.</p>
+<ul>
+<li><a href="https://cloud.r-project.org/">다운로드</a></li>
+<li><a href="https://www.r-bloggers.com/2022/04/new-features-in-r-4-2-0/">R 4.2. 버전 신규 기능</a></li>
+</ul>
+<p>특히 눈에 띄는 몇가지 기능은 바로 R 4.2. 버젼으로 업그레이드를 유혹하지만,
+그동안 작성한 코드가 돌지 않을 것 같은 불안감에 선듯 나서지 못하는 분들도 많다.</p>
+<p>실제로 R 4.2. 버전으로 판올림한 이후 4.1.X에서 잘돌던 코드가 제대로 동작하지 않아서
+나감했기 때문에 본 게시글을 작성하게 되었다. 해결 방법은 여러가지 있을 듯 싶지만,
+아무래도 가장 확실한 방법은 이전 R 버전 즉 4.1.X 로 되돌아가서 코드를 다시
+돌리는 것이 확실할 듯 싶다.</p>
+<p><img src="fig/downgrade-r.png" /></p>
+<p>RStudio IDE로 개발을 주로 하기 때문에 우선 돌아가고자 하는 R 버전 예를 들어 R 4.1.3. 버전을
+설치한다. 그렇게 되면 R 엔진이 두개 존재하게 되고 RStudio를 실행할 때
+<strong>컨트롤 + 마우스 클릭</strong>을 하게 되면 실행할 R 버전을 선택할 수 있게 된다.
+이와 같이 실행하면 다음과 같이 RStudio에 연결된 R 버젼이 이전 버전으로 돌아간 것을
+확인할 수 있다.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="r-upgrade.html#cb13-1" aria-hidden="true" tabindex="-1"></a>R version <span class="dv">4</span>.<span class="fl">1.3</span> (<span class="dv">2022-03-10</span>) <span class="sc">--</span> <span class="st">&quot;One Push-Up&quot;</span></span>
+<span id="cb13-2"><a href="r-upgrade.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Copyright</span> (C) <span class="dv">2022</span> The R Foundation <span class="cf">for</span> Statistical Computing</span>
+<span id="cb13-3"><a href="r-upgrade.html#cb13-3" aria-hidden="true" tabindex="-1"></a>Platform<span class="sc">:</span> x86_64<span class="sc">-</span>w64<span class="sc">-</span>mingw32<span class="sc">/</span><span class="fu">x64</span> (<span class="dv">64</span><span class="sc">-</span>bit)</span>
+<span id="cb13-4"><a href="r-upgrade.html#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="r-upgrade.html#cb13-5" aria-hidden="true" tabindex="-1"></a>R is free software and comes with ABSOLUTELY NO WARRANTY.</span>
+<span id="cb13-6"><a href="r-upgrade.html#cb13-6" aria-hidden="true" tabindex="-1"></a>You are welcome to redistribute it under certain conditions.</span>
+<span id="cb13-7"><a href="r-upgrade.html#cb13-7" aria-hidden="true" tabindex="-1"></a>Type <span class="st">&#39;license()&#39;</span> or <span class="st">&#39;licence()&#39;</span> <span class="cf">for</span> distribution details.</span>
+<span id="cb13-8"><a href="r-upgrade.html#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="r-upgrade.html#cb13-9" aria-hidden="true" tabindex="-1"></a>R is a collaborative project with many contributors.</span>
+<span id="cb13-10"><a href="r-upgrade.html#cb13-10" aria-hidden="true" tabindex="-1"></a>Type <span class="st">&#39;contributors()&#39;</span> <span class="cf">for</span> more information and</span>
+<span id="cb13-11"><a href="r-upgrade.html#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;citation()&#39;</span> on how to cite R or R packages <span class="cf">in</span> publications.</span>
+<span id="cb13-12"><a href="r-upgrade.html#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="r-upgrade.html#cb13-13" aria-hidden="true" tabindex="-1"></a>Type <span class="st">&#39;demo()&#39;</span> <span class="cf">for</span> some demos, <span class="st">&#39;help()&#39;</span> <span class="cf">for</span> on<span class="sc">-</span>line help, or</span>
+<span id="cb13-14"><a href="r-upgrade.html#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;help.start()&#39;</span> <span class="cf">for</span> an HTML browser interface to help.</span>
+<span id="cb13-15"><a href="r-upgrade.html#cb13-15" aria-hidden="true" tabindex="-1"></a>Type <span class="st">&#39;q()&#39;</span> to quit R.</span>
+<span id="cb13-16"><a href="r-upgrade.html#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-17"><a href="r-upgrade.html#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> </span></code></pre></div>
+<ul>
+<li><a href="https://support.rstudio.com/hc/en-us/articles/200486138-Changing-R-versions-for-the-RStudio-Desktop-IDE">Changing R versions for the RStudio Desktop IDE</a></li>
+</ul>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="ggplot-ggsave.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="r-upgrade.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="github-link.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="참고문헌.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -255,7 +267,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-github-repo.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/05-R버전-변경.Rmd",
 "text": "Edit"
 },
 "history": {

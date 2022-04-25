@@ -13,3 +13,4 @@ r-project
 git-repo
 github-repo
 github-repo-link
+r-upgrade

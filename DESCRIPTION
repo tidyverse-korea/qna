@@ -1,6 +1,6 @@
 Package: placeholder
 Type: Book
 Title: R 질의응답
-Version: 0.0.1
+Version: 0.1.0
 Imports: bookdown
 Remotes: tidyverse-korea/qna
